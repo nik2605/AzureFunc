@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Triggers\**" />
+    <EmbeddedResource Remove="Triggers\**" />
+    <None Remove="Triggers\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MailboxesSyncModels.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--<PackageReference Include="CodeContracts.MSBuild" Version="1.12.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>-->
+    <PackageReference Include="Microsoft.ApplicationInsights.PerfCounterCollector" Version="2.18.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.TraceListener" Version="2.18.0" />
+   
+ 
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.11" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>
